@@ -38,7 +38,7 @@ async function bootstrap() {
   app.setGlobalPrefix(apiPrefix)
   app.useGlobalPipes(new ValidationPipe()) //Dtolarda tanımlanan tüm validasyonları uygulamaya yarar.
   app.enableCors()
-  await app.listen(apiPort || 5050)
+  await app.listen(apiPort || 3000)
   const appUrl = await app.getUrl()
   console.log(`Application is running on: ${appUrl}`)
   console.log(`Swagger: ${appUrl}/${swaggerUrl}`)
