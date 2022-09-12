@@ -5,6 +5,7 @@ import { AppService } from './app.service'
 @ApiTags('Test')
 @Controller()
 export class AppController {
+  // eslint-disable-next-line prettier/prettier
   constructor(private readonly appService: AppService) {}
 
   @ApiOperation({
