@@ -11,7 +11,7 @@ async function bootstrap() {
   })
   const configService = app.get<ConfigService<IEnv>>(ConfigService)
   const apiPrefix = configService.get<string>('API_PREFIX')
-  const apiPort = configService.get<string>('API_PORT')
+  const apiPort = configService.get<string>('PORT')
   const swaggerUrl = configService.get<string>('API_SWAGGER_URL')
 
   //Swagger
