@@ -1,19 +1,19 @@
-import { HttpStatus } from '@nestjs/common'
-import { ApiProperty } from '@nestjs/swagger'
+import {HttpStatus} from "@nestjs/common";
+import {ApiProperty} from "@nestjs/swagger";
 
 export class DefaultException {
-  @ApiProperty({
-    description: 'Http Status',
-  })
-  statusCode: HttpStatus
+	@ApiProperty({
+		description: "Http Status",
+	})
+	statusCode: HttpStatus;
 
-  @ApiProperty({
-    description: 'Message',
-  })
-  message: any
+	@ApiProperty({
+		description: "Message",
+	})
+	message: any;
 
-  @ApiProperty({
-    description: 'email',
-  })
-  error: string
+	@ApiProperty({
+		description: "email",
+	})
+	error: string;
 }

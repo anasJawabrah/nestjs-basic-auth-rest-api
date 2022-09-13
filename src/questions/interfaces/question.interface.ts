@@ -1,10 +1,9 @@
-import { Document } from 'mongoose'
-
+import {Document} from "mongoose";
 
 export interface IQuestion extends Document {
-  id: string;
-  question: string;
-  answers:  Array<string>;
-  correctIndex:number;
-  subject: string;
+	id: string;
+	question: string;
+	answers: Array<string>;
+	correctIndex: number;
+	subject: string;
 }

@@ -1,36 +1,36 @@
-import { Module } from '@nestjs/common'
-import { ConfigModule, ConfigService } from '@nestjs/config'
-import { MongooseModule } from '@nestjs/mongoose'
+import { Module } from "@nestjs/common";
+import { ConfigModule, ConfigService } from "@nestjs/config";
+import { MongooseModule } from "@nestjs/mongoose";
 
 //Interfaces
-import { IEnv } from './common/interfaces/env.interface'
+import { IEnv } from "./common/interfaces/env.interface";
 
 //Modules
-import { UserModule } from './user/user.module'
-import { QuestionsModule } from './questions/questions.module';
+import { UserModule } from "./user/user.module";
+import { QuestionsModule } from "./questions/questions.module";
 
 //Controller & Services
-import { AppController } from './app.controller'
-import { AppService } from './app.service'
+import { AppController } from "./app.controller";
+import { AppService } from "./app.service";
 
 @Module({
-  imports: [
-    ConfigModule.forRoot({
-      isGlobal: true,
-    }),
-    MongooseModule.forRootAsync({
-      imports: [ConfigModule],
-      useFactory: async (configService: ConfigService<IEnv>) => ({
-        uri: configService.get<string>('MONGODB_URI'),
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-      }),
-      inject: [ConfigService],
-    }),
-    UserModule,
-    QuestionsModule
-  ],
-  controllers: [AppController],
-  providers: [AppService],
+	imports: [
+		ConfigModule.forRoot({
+			isGlobal: true,
+		}),
+		MongooseModule.forRootAsync({
+			imports: [ConfigModule],
+			useFactory: async (configService: ConfigService<IEnv>) => ({
+				uri: configService.get<string>("MONGODB_URI"),
+				useNewUrlParser: true,
+				useUnifiedTopology: true,
+			}),
+			inject: [ConfigService],
+		}),
+		UserModule,
+		QuestionsModule,
+	],
+	controllers: [AppController],
+	providers: [AppService],
 })
 export class AppModule {}
